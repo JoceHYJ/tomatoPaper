@@ -1,0 +1,29 @@
+### 创建学生 Role->1
+POST localhost:8080/api/register/student
+Content-Type: application/json
+
+{
+  "username": "张三",
+  "password": "123456",
+  "Role": 1
+}
+
+### 创建教师 Role->2
+POST localhost:8080/api/register/teacher
+Content-Type: application/json
+
+{
+  "username": "李四",
+  "password": "123456",
+  "Role": 2
+}
+
+### 创建管理员 Role->3
+POST localhost:8080/api/register/admin
+Content-Type: application/json
+
+{
+  "username": "admin_aa",
+  "password": "123456",
+  "Role": 3
+}
