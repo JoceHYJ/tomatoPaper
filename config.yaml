@@ -1,0 +1,21 @@
+# server 启动端口 8080
+server:
+  address: :8080
+
+# 数据库配置
+db:
+  dialects: mysql
+  host: localhost
+  port: 3306
+  db: tomato_paper
+  username: root
+  password: 010729
+  charset: utf8mb4
+  maxIdle: 50
+  maxOpen: 150
+
+# 文件配置
+fileSettings:
+  uploader: /tomatoPaper/file/upload
+  download: /tomatoPaper/file/download
+  fileHost: http://localhost:8080
