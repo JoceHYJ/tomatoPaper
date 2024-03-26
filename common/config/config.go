@@ -7,7 +7,7 @@ import (
 
 type config struct {
 	Server       server       `yaml:"server"`
-	Db           db           `yaml:"database"`
+	Db           db           `yaml:"db"`
 	Log          log          `yaml:"log"`
 	FileSettings fileSettings `yaml:"fileSettings"`
 }
@@ -22,10 +22,11 @@ type db struct {
 	Dialects string `yaml:"dialects"`
 	Host     string `yaml:"host"`
 	Port     int    `yaml:"port"`
-	Db       string `yaml:"database"`
+	Db       string `yaml:"db"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
 	Charset  string `yaml:"charset"`
+	Loc      string `yaml:"loc"`
 	MaxIdle  int    `yaml:"maxIdle"`
 	MaxOpen  int    `yaml:"maxOpen"`
 }
@@ -47,7 +48,7 @@ var Config *config
 
 // init 初始化配置
 func init() {
-	yamlFile, err := os.ReadFile("/home/jocehyj/goWorkspace/src/tomatoPaper/config.yaml")
+	yamlFile, err := os.ReadFile("/home/jocehyj/goWorkspace/src/tomatoPaper/common/config/config.yaml")
 	if err != nil {
 		panic(err)
 	}

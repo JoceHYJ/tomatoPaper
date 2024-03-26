@@ -11,8 +11,10 @@ db:
   username: root
   password: 010729
   charset: utf8mb4
+  loc: Asia%2FShanghai
   maxIdle: 50
   maxOpen: 150
+
 
 # 文件配置
 fileSettings:
