@@ -10,12 +10,27 @@ import (
 // ICourseService 定义接口
 type ICourseService interface {
 	CreateCourse(c *web.Context, dao entity.CreateCourseDto)
+	GetCourseByCourseName(c *web.Context, name string)
+	GetCourseByCourseCode(c *web.Context, code string)
 }
 
 // CourseServiceImpl 实现接口
 type CourseServiceImpl struct {
 }
 
+// GetCourseByCourseName  通过课程名称获取课程信息
+func (cs CourseServiceImpl) GetCourseByCourseName(c *web.Context, name string) {
+	course := dao.GetCourseByCourseName(name)
+	c.RespJSON(200, course)
+}
+
+// GetCourseByCourseCode 通过课程代码获取课程信息
+func (cs CourseServiceImpl) GetCourseByCourseCode(c *web.Context, code string) {
+	course := dao.GetCourseByCourseCode(code)
+	c.RespJSON(200, course)
+}
+
+// CreateCourse 创建课程
 func (cs CourseServiceImpl) CreateCourse(c *web.Context, dto entity.CreateCourseDto) {
 	err := validator.New().Struct(dto)
 	if err != nil {

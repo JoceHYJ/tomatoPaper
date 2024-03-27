@@ -17,6 +17,8 @@ func TestCreate(t *testing.T) {
 func TestQuery(t *testing.T) {
 	server := web.NewHTTPServer()
 	server.Get("/api/query/user", controller.GetUserByUsername)
+	server.Get("/api/query/course_by_name", controller.GetCourseByCourseName)
+	server.Get("/api/query/course_by_code", controller.GetCourseByCourseCode)
 	server.Start(":8080")
 }
 

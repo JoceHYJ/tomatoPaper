@@ -12,3 +12,15 @@ func CreateCourse(c *web.Context) {
 	_ = c.BindJson(&dto)
 	service.CourseService().CreateCourse(c, dto)
 }
+
+// GetCourseByCourseName 通过课程名称获取课程信息
+func GetCourseByCourseName(c *web.Context) {
+	name, _ := c.QueryValue("name").String()
+	service.CourseService().GetCourseByCourseName(c, name)
+}
+
+// GetCourseByCourseCode 通过课程代码获取课程信息
+func GetCourseByCourseCode(c *web.Context) {
+	code, _ := c.QueryValue("course_code").String()
+	service.CourseService().GetCourseByCourseCode(c, code)
+}
