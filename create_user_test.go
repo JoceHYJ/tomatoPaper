@@ -2,14 +2,14 @@ package main
 
 import (
 	"testing"
-	"tomatoPaper/api"
+	"tomatoPaper/api/controller"
 	"tomatoPaper/pkg/database"
 	"tomatoPaper/web"
 )
 
 func TestCreateUser(t *testing.T) {
 	server := web.NewHTTPServer()
-	server.Post("/api/register", api.CreateUser)
+	server.Post("/api/register", controller.CreateUser)
 	server.Start(":8080")
 }
 

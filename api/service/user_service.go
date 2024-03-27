@@ -1,18 +1,36 @@
 package service
 
 import (
+	"github.com/go-playground/validator/v10"
 	"tomatoPaper/api/dao"
 	"tomatoPaper/api/entity"
+	"tomatoPaper/web"
 )
 
-type UserService struct {
-	UserDao *dao.UserDao
+// IUserService 定义接口
+type IUserService interface {
+	CreateUser(c *web.Context, dto entity.CreateUserDto)
 }
 
-func NewUserService(userDao *dao.UserDao) *UserService {
-	return &UserService{UserDao: userDao}
+type UserServiceImpl struct {
 }
 
-func (s *UserService) CreateUser(user *entity.Users) error {
-	return s.UserDao.CreateUser(user)
+func (u UserServiceImpl) CreateUser(c *web.Context, dto entity.CreateUserDto) {
+	err := validator.New().Struct(dto)
+	if err != nil {
+		c.RespJSON(400, err.Error())
+		return
+	}
+	bool := dao.CreateUser(dto)
+	if !bool {
+		c.RespJSON(400, "创建失败")
+	}
+	c.RespJSON(200, "创建成功")
+	return
+}
+
+var userService = UserServiceImpl{}
+
+func UserService() IUserService {
+	return &userService
 }
