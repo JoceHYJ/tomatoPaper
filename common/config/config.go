@@ -3,6 +3,7 @@ package config
 import (
 	"gopkg.in/yaml.v2"
 	"os"
+	"path/filepath"
 )
 
 type config struct {
@@ -48,7 +49,9 @@ var Config *config
 
 // init 初始化配置
 func init() {
-	yamlFile, err := os.ReadFile("/home/jocehyj/goWorkspace/src/tomatoPaper/common/config/config.yaml")
+	workDir, _ := os.Getwd()
+	configFile := filepath.Join(workDir, "config.yaml")
+	yamlFile, err := os.ReadFile(configFile)
 	if err != nil {
 		panic(err)
 	}
