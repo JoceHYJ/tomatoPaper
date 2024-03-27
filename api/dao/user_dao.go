@@ -5,6 +5,7 @@ package dao
 
 import (
 	"tomatoPaper/api/entity"
+	"tomatoPaper/common/util"
 	"tomatoPaper/pkg/database"
 )
 
@@ -25,10 +26,9 @@ func GetUserByUsername(username string) (user entity.Users) {
 func CreateUser(dto entity.CreateUserDto) bool {
 	users := entity.Users{
 		Username: dto.Username,
-		Password: dto.Password,
-		// TODO: 密码
-		//Password: util.EncryptionMd5(dto.Password),
-		Role: dto.Role,
+		//Password: dto.Password,
+		Password: util.EncryptionMd5(dto.Password),
+		Role:     dto.Role,
 	}
 	_ = database.GormDB.AutoMigrate(&users)
 	tx := database.GormDB.Create(&users)
