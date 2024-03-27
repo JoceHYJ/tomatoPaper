@@ -9,7 +9,9 @@ import (
 	"tomatoPaper/common/config"
 )
 
-var GormDB *gorm.DB
+var (
+	GormDB *gorm.DB
+)
 
 // SetupDBLink 处理数据库连接
 func SetupDBLink() error {
@@ -23,7 +25,6 @@ func SetupDBLink() error {
 		dbConfig.Db,
 		dbConfig.Charset,
 		dbConfig.Loc)
-	//url = fmt.Sprintf("root:010729@tcp(127.0.0.1:3306)/tomato_paper?charset=utf8mb4&parseTime=True&loc=Local")
 	GormDB, err = gorm.Open(mysql.Open(url), &gorm.Config{
 		Logger:                                   logger.Default.LogMode(logger.Info),
 		DisableForeignKeyConstraintWhenMigrating: true,

@@ -9,3 +9,7 @@ type Users struct {
 	Password string `gorm:"type:varchar(255);not null" json:"password"`
 	Role     int    `gorm:"type:int" json:"role"` // 1-> 学生 2-> 老师 3-> 管理员
 }
+
+// UserDTO 用户DTO
+type UserDTO struct {
+}
