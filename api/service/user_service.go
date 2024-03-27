@@ -9,13 +9,48 @@ import (
 
 // IUserService 定义接口
 type IUserService interface {
+	// Login(c *web.Context, dto entity.UserLoginDto)
+
 	CreateUser(c *web.Context, dto entity.CreateUserDto)
+	GetUserByUsername(c *web.Context, username string)
 }
 
 // UserServiceImpl 实现接口
 type UserServiceImpl struct {
 }
 
+//func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
+//	//TODO implement me
+//	panic("implement me")
+//}
+
+type UserResponse struct {
+	ID       uint   `json:"id"`
+	Username string `json:"username"`
+	Role     string `json:"role"`
+}
+
+// GetUserByUsername 根据用户名获取用户信息
+func (u UserServiceImpl) GetUserByUsername(c *web.Context, username string) {
+	defer func() {
+		err := recover()
+		if err != nil {
+			c.RespJSON(400, err)
+		}
+	}()
+
+	user := dao.GetUserByUsername(username)
+	//c.RespJSON(200, user)
+	resp := UserResponse{
+		ID:       user.ID,
+		Username: username,
+		Role:     entity.RoleMap[user.Role],
+	}
+	c.RespJSON(200, resp)
+	return
+}
+
+// CreateUser 创建用户
 func (u UserServiceImpl) CreateUser(c *web.Context, dto entity.CreateUserDto) {
 	err := validator.New().Struct(dto)
 	if err != nil {

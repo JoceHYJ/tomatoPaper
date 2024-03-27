@@ -15,3 +15,8 @@ func CreateUser(c *web.Context) {
 	_ = c.BindJson(&dto)
 	service.UserService().CreateUser(c, dto)
 }
+
+func GetUserByUsername(c *web.Context) {
+	Username, _ := c.QueryValue("username").String()
+	service.UserService().GetUserByUsername(c, Username)
+}

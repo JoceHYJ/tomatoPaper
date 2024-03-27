@@ -14,6 +14,12 @@ func TestCreate(t *testing.T) {
 	server.Start(":8080")
 }
 
+func TestQuery(t *testing.T) {
+	server := web.NewHTTPServer()
+	server.Get("/api/query/user", controller.GetUserByUsername)
+	server.Start(":8080")
+}
+
 func init() {
 	database.SetupDBLink()
 }

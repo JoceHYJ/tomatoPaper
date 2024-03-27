@@ -8,6 +8,19 @@ import (
 	"tomatoPaper/pkg/database"
 )
 
+// UserDetail 用户详情
+func UserDetail(dto entity.UserLoginDto) (user entity.Users) {
+	username := dto.Username
+	database.GormDB.Where("username = ?", username).First(&user)
+	return user
+}
+
+// GetUserByUsername 根据用户名获取用户
+func GetUserByUsername(username string) (user entity.Users) {
+	database.GormDB.Select("id, username, role").Where("username = ?", username).First(&user)
+	return user
+}
+
 // CreateUser 新增用户
 func CreateUser(dto entity.CreateUserDto) bool {
 	users := entity.Users{
@@ -17,7 +30,7 @@ func CreateUser(dto entity.CreateUserDto) bool {
 		//Password: util.EncryptionMd5(dto.Password),
 		Role: dto.Role,
 	}
-	database.GormDB.AutoMigrate(&users)
+	_ = database.GormDB.AutoMigrate(&users)
 	tx := database.GormDB.Create(&users)
 	if tx.RowsAffected > 0 {
 		return true
