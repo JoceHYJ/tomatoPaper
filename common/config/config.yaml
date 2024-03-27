@@ -9,7 +9,7 @@ db:
   port: 3306
   db: tomato_paper
   username: root
-  password: 010729
+  password: password
   charset: utf8mb4
   loc: Asia%2FShanghai
   maxIdle: 50

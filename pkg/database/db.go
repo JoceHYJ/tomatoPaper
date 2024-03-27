@@ -6,11 +6,10 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"tomatoPaper/api/entity"
 	"tomatoPaper/common/config"
 )
 
-var Db *gorm.DB
+var GormDB *gorm.DB
 
 // SetupDBLink 处理数据库连接
 func SetupDBLink() error {
@@ -25,7 +24,7 @@ func SetupDBLink() error {
 		dbConfig.Charset,
 		dbConfig.Loc)
 	//url = fmt.Sprintf("root:010729@tcp(127.0.0.1:3306)/tomato_paper?charset=utf8mb4&parseTime=True&loc=Local")
-	Db, err = gorm.Open(mysql.Open(url), &gorm.Config{
+	GormDB, err = gorm.Open(mysql.Open(url), &gorm.Config{
 		Logger:                                   logger.Default.LogMode(logger.Info),
 		DisableForeignKeyConstraintWhenMigrating: true,
 	})
@@ -33,15 +32,10 @@ func SetupDBLink() error {
 		//panic(err)
 		fmt.Println("数据库连接失败:", err)
 	}
-	err = Db.AutoMigrate(entity.Users{})
-	if err != nil {
-		fmt.Println("创建数据库表格失败:", err)
+	if GormDB.Error != nil {
+		panic(GormDB.Error)
 	}
-
-	if Db.Error != nil {
-		panic(Db.Error)
-	}
-	sqlDB, err := Db.DB()
+	sqlDB, err := GormDB.DB()
 	sqlDB.SetMaxOpenConns(dbConfig.MaxOpen)
 	sqlDB.SetMaxIdleConns(dbConfig.MaxIdle)
 	return nil
