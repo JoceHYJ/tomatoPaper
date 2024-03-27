@@ -12,6 +12,7 @@ type IUserService interface {
 	CreateUser(c *web.Context, dto entity.CreateUserDto)
 }
 
+// UserServiceImpl 实现接口
 type UserServiceImpl struct {
 }
 

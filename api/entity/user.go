@@ -11,7 +11,7 @@ type Users struct {
 	Role     uint   `gorm:"type:uint" json:"role"` // 1-> 学生 2-> 老师 3-> 管理员
 }
 
-// UserIdDto 用户ID对象
+// UserIdDto 用户ID 传输对象
 type UserIdDto struct {
 	Id uint `json:"id"`
 }

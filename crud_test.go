@@ -7,9 +7,10 @@ import (
 	"tomatoPaper/web"
 )
 
-func TestCreateUser(t *testing.T) {
+func TestCreate(t *testing.T) {
 	server := web.NewHTTPServer()
 	server.Post("/api/register", controller.CreateUser)
+	server.Post("/api/create_course", controller.CreateCourse)
 	server.Start(":8080")
 }
 
