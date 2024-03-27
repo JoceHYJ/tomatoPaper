@@ -37,3 +37,10 @@ func CreateUser(dto entity.CreateUserDto) bool {
 	}
 	return false
 }
+
+// DeleteUserById 删除用户
+func DeleteUserById(dto entity.UserIdDto) {
+	//database.GormDB.First(&entity.Users{}, dto.ID)
+	database.GormDB.Delete(&entity.Users{}, dto.ID)
+	//database.GormDB.Where("id = ?", dto.ID).Delete(&entity.Users{})
+}

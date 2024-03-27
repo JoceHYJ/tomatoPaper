@@ -19,7 +19,7 @@ var RoleMap = map[uint]string{
 
 // UserIdDto 用户ID 传输对象
 type UserIdDto struct {
-	Id uint `json:"id"`
+	ID uint `json:"id"`
 }
 
 // CreateUserDto 新增用户参数

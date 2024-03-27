@@ -13,6 +13,7 @@ type IUserService interface {
 
 	CreateUser(c *web.Context, dto entity.CreateUserDto)
 	GetUserByUsername(c *web.Context, username string)
+	DeleteUserById(c *web.Context, dto entity.UserIdDto)
 }
 
 // UserServiceImpl 实现接口
@@ -63,6 +64,12 @@ func (u UserServiceImpl) CreateUser(c *web.Context, dto entity.CreateUserDto) {
 	}
 	c.RespJSON(200, "创建成功")
 	return
+}
+
+// DeleteUserById 根据id删除用户信息
+func (u UserServiceImpl) DeleteUserById(c *web.Context, dto entity.UserIdDto) {
+	dao.DeleteUserById(dto)
+	c.RespJSON(200, "删除成功")
 }
 
 var userService = UserServiceImpl{}

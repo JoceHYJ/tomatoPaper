@@ -22,6 +22,12 @@ func TestQuery(t *testing.T) {
 	server.Start(":8080")
 }
 
+func TestDelete(t *testing.T) {
+	server := web.NewHTTPServer()
+	server.Delete("/api/delete/user", controller.DeleteUserById)
+	server.Start(":8080")
+}
+
 func init() {
 	database.SetupDBLink()
 }
