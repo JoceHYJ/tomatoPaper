@@ -3,17 +3,11 @@ package api
 import (
 	"fmt"
 	"net/http"
+	"tomatoPaper/api/entity"
 	"tomatoPaper/common/util"
 	"tomatoPaper/pkg/database"
 	"tomatoPaper/web"
 )
-
-type Users struct {
-	ID       int    `gorm:"type:int;autoIncrement;primaryKey" json:"id"`
-	Username string `gorm:"type:varchar(255);not null" json:"username"`
-	Password string `gorm:"type:varchar(255);not null" json:"password"`
-	Role     int    `gorm:"type:int" json:"role"` // 1-> 学生 2-> 老师 3-> 管理员
-}
 
 func CreateUser(c *web.Context) {
 	defer func() {
@@ -23,7 +17,7 @@ func CreateUser(c *web.Context) {
 			return
 		}
 	}()
-	var user Users
+	var user entity.Users
 	err := c.BindJson(&user)
 	if err != nil {
 		util.HandleResponse(c, http.StatusBadRequest, "参数错误", err)
