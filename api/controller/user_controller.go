@@ -22,9 +22,8 @@ func GetUserByUsername(c *web.Context) {
 	service.UserService().GetUserByUsername(c, Username)
 }
 
-// DeleteUserById 删除用户
-func DeleteUserById(c *web.Context) {
-	var dto entity.UserIdDto
-	_ = c.BindJson(&dto)
-	service.UserService().DeleteUserById(c, dto)
+// DeleteUserByUserId 删除用户
+func DeleteUserByUserId(c *web.Context) {
+	UserId, _ := c.QueryValue("user_id").String()
+	service.UserService().DeleteUserByUserId(c, UserId)
 }

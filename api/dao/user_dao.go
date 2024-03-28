@@ -25,6 +25,7 @@ func GetUserByUsername(username string) (user entity.Users) {
 // CreateUser 新增用户
 func CreateUser(dto entity.CreateUserDto) bool {
 	users := entity.Users{
+		UserID:   dto.UserID,
 		Username: dto.Username,
 		//Password: dto.Password,
 		Password: util.EncryptionMd5(dto.Password),
@@ -38,9 +39,16 @@ func CreateUser(dto entity.CreateUserDto) bool {
 	return false
 }
 
-// DeleteUserById 删除用户
-func DeleteUserById(dto entity.UserIdDto) {
-	//database.GormDB.First(&entity.Users{}, dto.ID)
-	database.GormDB.Delete(&entity.Users{}, dto.ID)
-	//database.GormDB.Where("id = ?", dto.ID).Delete(&entity.Users{})
+// DeleteUserByUserId 根据用户id删除用户
+func DeleteUserByUserId(userid string) bool {
+	var count int64
+	database.GormDB.Model(&entity.Users{}).Where("user_id = ?", userid).Count(&count)
+	if count <= 0 {
+		return false
+	}
+	tx := database.GormDB.Where("user_id = ?", userid).Delete(&entity.Users{})
+	if tx.RowsAffected > 0 {
+		return true
+	}
+	return false
 }

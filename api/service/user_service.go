@@ -1,10 +1,11 @@
 package service
 
 import (
-	"github.com/go-playground/validator/v10"
 	"tomatoPaper/api/dao"
 	"tomatoPaper/api/entity"
 	"tomatoPaper/web"
+
+	"github.com/go-playground/validator/v10"
 )
 
 // IUserService 定义接口
@@ -13,7 +14,7 @@ type IUserService interface {
 
 	CreateUser(c *web.Context, dto entity.CreateUserDto)
 	GetUserByUsername(c *web.Context, username string)
-	DeleteUserById(c *web.Context, dto entity.UserIdDto)
+	DeleteUserByUserId(c *web.Context, userid string)
 }
 
 // UserServiceImpl 实现接口
@@ -66,9 +67,18 @@ func (u UserServiceImpl) CreateUser(c *web.Context, dto entity.CreateUserDto) {
 	return
 }
 
-// DeleteUserById 根据id删除用户信息
-func (u UserServiceImpl) DeleteUserById(c *web.Context, dto entity.UserIdDto) {
-	dao.DeleteUserById(dto)
+// DeleteUserByUserId 根据id删除用户信息
+func (u UserServiceImpl) DeleteUserByUserId(c *web.Context, userid string) {
+	defer func() {
+		err := recover()
+		if err != nil {
+			c.RespJSON(400, err)
+		}
+	}()
+	bool := dao.DeleteUserByUserId(userid)
+	if !bool {
+		c.RespJSON(400, "删除失败")
+	}
 	c.RespJSON(200, "删除成功")
 }
 
