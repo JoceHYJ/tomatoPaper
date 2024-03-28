@@ -31,3 +31,17 @@ func CreateCourse(dto entity.CreateCourseDto) bool {
 	}
 	return false
 }
+
+// DeleteCourseByCourseCode 删除课程
+func DeleteCourseByCourseCode(code string) bool {
+	var count int64
+	database.GormDB.Model(&entity.Courses{}).Where("course_code = ?", code).Count(&count)
+	if count <= 0 {
+		return false
+	}
+	tx := database.GormDB.Where("course_code = ?", code).Delete(&entity.Courses{})
+	if tx.RowsAffected > 0 {
+		return true
+	}
+	return false
+}

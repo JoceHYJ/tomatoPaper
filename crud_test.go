@@ -25,7 +25,7 @@ func TestQuery(t *testing.T) {
 func TestDelete(t *testing.T) {
 	server := web.NewHTTPServer()
 	server.Delete("/api/delete/user", controller.DeleteUserByUserId)
-	//server.Delete("/api/delete/user", api.DeleteUser)
+	server.Delete("/api/delete/course", controller.DeleteCourseByCourseCode)
 	server.Start(":8080")
 }
 

@@ -12,6 +12,7 @@ type ICourseService interface {
 	CreateCourse(c *web.Context, dao entity.CreateCourseDto)
 	GetCourseByCourseName(c *web.Context, name string)
 	GetCourseByCourseCode(c *web.Context, code string)
+	DeleteCourseByCourseCode(c *web.Context, code string)
 }
 
 // CourseServiceImpl 实现接口
@@ -43,6 +44,21 @@ func (cs CourseServiceImpl) CreateCourse(c *web.Context, dto entity.CreateCourse
 	}
 	c.RespJSON(200, "创建成功")
 	return
+}
+
+// DeleteCourseByCourseCode 通过课程代码删除课程
+func (cs CourseServiceImpl) DeleteCourseByCourseCode(c *web.Context, code string) {
+	defer func() {
+		err := recover()
+		if err != nil {
+			c.RespJSON(400, err)
+		}
+	}()
+	bool := dao.DeleteCourseByCourseCode(code)
+	if !bool {
+		c.RespJSON(400, "删除失败")
+	}
+	c.RespJSON(200, "删除成功")
 }
 
 var courseService = CourseServiceImpl{}

@@ -24,3 +24,9 @@ func GetCourseByCourseCode(c *web.Context) {
 	code, _ := c.QueryValue("course_code").String()
 	service.CourseService().GetCourseByCourseCode(c, code)
 }
+
+// DeleteCourseByCourseCode 通过课程代码删除课程
+func DeleteCourseByCourseCode(c *web.Context) {
+	code, _ := c.QueryValue("course_code").String()
+	service.CourseService().DeleteCourseByCourseCode(c, code)
+}
