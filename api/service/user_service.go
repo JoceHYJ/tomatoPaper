@@ -27,7 +27,7 @@ type UserServiceImpl struct {
 //}
 
 type UserResponse struct {
-	ID       uint   `json:"id"`
+	UserID   string `json:"user_id"`
 	Username string `json:"username"`
 	Role     string `json:"role"`
 }
@@ -44,7 +44,7 @@ func (u UserServiceImpl) GetUserByUsername(c *web.Context, username string) {
 	user := dao.GetUserByUsername(username)
 	//c.RespJSON(200, user)
 	resp := UserResponse{
-		ID:       user.ID,
+		UserID:   user.UserID,
 		Username: username,
 		Role:     entity.RoleMap[user.Role],
 	}

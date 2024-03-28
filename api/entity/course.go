@@ -2,8 +2,8 @@ package entity
 
 // Courses 课程实体
 type Courses struct {
-	ID          uint   `gorm:"type:int;autoIncrement;primaryKey" json:"id"`
-	CourseCode  string `gorm:"type:varchar(255);not null;unique" json:"course_code"`
+	//ID          uint   `gorm:"type:int;autoIncrement;primaryKey" json:"id"`
+	CourseCode  string `gorm:"type:varchar(255);primaryKey" json:"course_code"`
 	Name        string `gorm:"type:varchar(255);not null" json:"name"`
 	Description string `gorm:"type:text" json:"description"`
 }
@@ -22,7 +22,7 @@ type CreateCourseDto struct {
 
 // CourseInfoDto 课程信息 详情视图
 type CourseInfoDto struct {
-	ID          uint   `json:"id"`
+	//ID          uint   `json:"id"`
 	CourseCode  string `json:"course_code"`
 	Name        string `json:"name"`
 	Description string `json:"description"`

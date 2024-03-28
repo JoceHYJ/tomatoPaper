@@ -5,8 +5,8 @@ package entity
 
 // Users  用户模型对象
 type Users struct {
-	ID       uint   `gorm:"type:uint;autoIncrement;primaryKey" json:"id"`
-	UserID   string `gorm:"type:varchar(255);not null" json:"user_id"`
+	//ID       uint   `gorm:"type:uint;autoIncrement;primaryKey" json:"id"`
+	UserID   string `gorm:"type:varchar(255);primaryKey" json:"user_id"`
 	Username string `gorm:"type:varchar(255);not null" json:"username"`
 	Password string `gorm:"type:varchar(255);not null" json:"password"`
 	Role     uint   `gorm:"type:uint" json:"role"` // 1-> 学生 2-> 老师 3-> 管理员

@@ -18,7 +18,7 @@ func UserDetail(dto entity.UserLoginDto) (user entity.Users) {
 
 // GetUserByUsername 根据用户名获取用户
 func GetUserByUsername(username string) (user entity.Users) {
-	database.GormDB.Select("id, username, role").Where("username = ?", username).First(&user)
+	database.GormDB.Select("user_id, username, role").Where("username = ?", username).First(&user)
 	return user
 }
 
