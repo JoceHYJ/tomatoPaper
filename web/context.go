@@ -3,9 +3,11 @@ package web
 import (
 	"encoding/json"
 	"errors"
+	"math"
 	"net/http"
 	"net/url"
 	"strconv"
+	"sync"
 )
 
 type Context struct {
@@ -29,6 +31,41 @@ type Context struct {
 	UserValues map[string]any
 
 	//SessionManager *session.Manager
+
+	index int8
+
+	mu sync.RWMutex
+
+	handlers     []HandleFunc
+	handlerIndex int8
+}
+
+const abortIndex = math.MaxInt8 >> 1
+
+func (c *Context) Abort() {
+	c.index = abortIndex
+}
+
+func (c *Context) IsAborted() bool {
+	return c.index >= abortIndex
+}
+
+func (c *Context) Set(key string, value any) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	if c.UserValues == nil {
+		c.UserValues = make(map[string]any)
+	}
+	c.UserValues[key] = value
+}
+
+func (c *Context) Next() {
+	c.handlerIndex++
+	s := int8(len(c.handlers))
+	for c.handlerIndex < s {
+		c.handlers[c.handlerIndex](c)
+		c.handlerIndex++
+	}
 }
 
 func (c *Context) Redirect(url string) {
