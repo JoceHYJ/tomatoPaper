@@ -27,3 +27,10 @@ func DeleteUserByUserId(c *web.Context) {
 	UserId, _ := c.QueryValue("user_id").String()
 	service.UserService().DeleteUserByUserId(c, UserId)
 }
+
+// Login 用户登录
+func Login(c *web.Context) {
+	var dto entity.UserLoginDto
+	_ = c.BindJson(&dto)
+	service.UserService().Login(c, dto)
+}

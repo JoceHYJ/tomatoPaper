@@ -29,8 +29,9 @@ var (
 // GenerateToken 根据用户信息生成 token
 func GenerateToken(user entity.Users) (string, error) {
 	var jwtUser = entity.JwtUser{
-		UserID:   user.UserID,
-		Username: user.Username,
+		UserID: user.UserID,
+		//Username: user.Username,
+		Password: user.Password,
 	}
 	c := userStdClaims{
 		jwtUser,

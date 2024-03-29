@@ -2,7 +2,6 @@ package main
 
 import (
 	"testing"
-	"tomatoPaper/api"
 	"tomatoPaper/api/controller"
 	"tomatoPaper/pkg/database"
 	"tomatoPaper/web"
@@ -41,7 +40,8 @@ func TestUpdate(t *testing.T) {
 // 测试用户登录
 func TestLogin(t *testing.T) {
 	server := web.NewHTTPServer()
-	server.Post("/api/login", api.Login)
+	//server.Post("/api/login", api.Login)
+	server.Post("/api/login", controller.Login)
 	server.Start(":8080")
 }
 

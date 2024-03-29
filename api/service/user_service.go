@@ -1,8 +1,11 @@
 package service
 
 import (
+	"bytes"
 	"tomatoPaper/api/dao"
 	"tomatoPaper/api/entity"
+	"tomatoPaper/common/util"
+	"tomatoPaper/pkg/jwt"
 	"tomatoPaper/web"
 
 	"github.com/go-playground/validator/v10"
@@ -24,10 +27,28 @@ func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
 	err := validator.New().Struct(dto)
 	if err != nil {
 		c.RespJSON(400, "参数校验失败")
+		return
 	}
-
-	// 如果校验通过，返回用户信息
-	// 如果校验不通过，返回错误信息
+	//user := dao.UserDetail(dto)
+	user := dao.GetUserByUserID(dto.UserID)
+	hashedPassword := util.EncryptionMd5(user.Password)
+	if !bytes.Equal([]byte(hashedPassword), []byte(user.Password)) {
+		c.RespJSON(400, "密码错误")
+		return
+	}
+	if hashedPassword != user.Password {
+		c.RespJSON(400, "密码错误")
+		return
+	}
+	token, err := jwt.GenerateToken(user)
+	if err != nil {
+		c.RespJSON(500, "生成token失败")
+		return
+	}
+	c.RespJSON(200, map[string]any{
+		"msg":   "登录成功",
+		"token": token,
+	})
 }
 
 type UserResponse struct {
@@ -50,6 +71,25 @@ func (u UserServiceImpl) GetUserByUsername(c *web.Context, username string) {
 	resp := UserResponse{
 		UserID:   user.UserID,
 		Username: username,
+		Role:     entity.RoleMap[user.Role],
+	}
+	c.RespJSON(200, resp)
+	return
+}
+
+// GetUserByUserId 根据用户id获取用户信息
+func (u UserServiceImpl) GetUserByUserId(c *web.Context, userid string) {
+	defer func() {
+		err := recover()
+		if err != nil {
+			c.RespJSON(400, err)
+		}
+	}()
+	user := dao.GetUserByUserID(userid)
+	//c.RespJSON(200, user)
+	resp := UserResponse{
+		UserID:   user.UserID,
+		Username: user.Username,
 		Role:     entity.RoleMap[user.Role],
 	}
 	c.RespJSON(200, resp)

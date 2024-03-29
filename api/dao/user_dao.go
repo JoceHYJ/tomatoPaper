@@ -11,14 +11,20 @@ import (
 
 // UserDetail 用户详情
 func UserDetail(dto entity.UserLoginDto) (user entity.Users) {
-	username := dto.Username
-	database.GormDB.Where("username = ?", username).First(&user)
+	userid := dto.UserID
+	database.GormDB.Where("user_id = ?", userid).First(&user)
 	return user
 }
 
 // GetUserByUsername 根据用户名获取用户
 func GetUserByUsername(username string) (user entity.Users) {
 	database.GormDB.Select("user_id, username, role").Where("username = ?", username).First(&user)
+	return user
+}
+
+// GetUserByUserID 根据用户ID获取用户
+func GetUserByUserID(userID string) (user entity.Users) {
+	database.GormDB.Select("user_id, username, role").Where("user_id = ?", userID).First(&user)
 	return user
 }
 
