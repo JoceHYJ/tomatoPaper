@@ -30,3 +30,10 @@ func DeleteCourseByCourseCode(c *web.Context) {
 	code, _ := c.QueryValue("course_code").String()
 	service.CourseService().DeleteCourseByCourseCode(c, code)
 }
+
+// UpdateCourse 更新课程信息
+func UpdateCourse(c *web.Context) {
+	var dto entity.UpdateCourseDto
+	_ = c.BindJson(&dto)
+	service.CourseService().UpdateCourse(c, dto)
+}

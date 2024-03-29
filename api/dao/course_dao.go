@@ -45,3 +45,22 @@ func DeleteCourseByCourseCode(code string) bool {
 	}
 	return false
 }
+
+// UpdateCourse 更新课程信息
+func UpdateCourse(dto entity.UpdateCourseDto) bool {
+	courses := entity.Courses{
+		Name:        dto.Name,
+		CourseCode:  dto.CourseCode,
+		Description: dto.Description,
+	}
+	var count int64
+	database.GormDB.Model(&entity.Courses{}).Where("course_code = ?", courses.CourseCode).Count(&count)
+	if count < 0 {
+		return false
+	}
+	tx := database.GormDB.Model(&entity.Courses{}).Where("course_code=?", courses.CourseCode).Updates(&courses)
+	if tx.RowsAffected > 0 {
+		return true
+	}
+	return false
+}

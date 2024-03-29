@@ -29,6 +29,23 @@ func TestDelete(t *testing.T) {
 	server.Start(":8080")
 }
 
+func TestUpdate(t *testing.T) {
+	server := web.NewHTTPServer()
+	//server.Post("/api/update/password", controller.UpdatePassword)
+	server.Post("/api/update/course", controller.UpdateCourse)
+	//server.Post("/api/update/course", api.UpdateCourse)
+	server.Start(":8080")
+}
+
+// 测试用户登录
+func TestLogin(t *testing.T) {
+
+}
+
+// 测试论文的上传下载
+func TestPaper(t *testing.T) {
+}
+
 func init() {
 	database.SetupDBLink()
 }

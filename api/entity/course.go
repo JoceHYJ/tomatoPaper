@@ -20,6 +20,13 @@ type CreateCourseDto struct {
 	Description string `json:"description" validate:"required"`
 }
 
+// UpdateCourseDto 更新课程参数
+type UpdateCourseDto struct {
+	CourseCode  string `json:"course_code"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+}
+
 // CourseInfoDto 课程信息 详情视图
 type CourseInfoDto struct {
 	//ID          uint   `json:"id"`
