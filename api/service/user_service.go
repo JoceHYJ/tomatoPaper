@@ -10,8 +10,7 @@ import (
 
 // IUserService 定义接口
 type IUserService interface {
-	// Login(c *web.Context, dto entity.UserLoginDto)
-
+	Login(c *web.Context, dto entity.UserLoginDto)
 	CreateUser(c *web.Context, dto entity.CreateUserDto)
 	GetUserByUsername(c *web.Context, username string)
 	DeleteUserByUserId(c *web.Context, userid string)
@@ -21,10 +20,15 @@ type IUserService interface {
 type UserServiceImpl struct {
 }
 
-//func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
-//	//TODO implement me
-//	panic("implement me")
-//}
+func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
+	err := validator.New().Struct(dto)
+	if err != nil {
+		c.RespJSON(400, "参数校验失败")
+	}
+
+	// 如果校验通过，返回用户信息
+	// 如果校验不通过，返回错误信息
+}
 
 type UserResponse struct {
 	UserID   string `json:"user_id"`

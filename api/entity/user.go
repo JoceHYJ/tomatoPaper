@@ -35,10 +35,18 @@ type CreateUserDto struct {
 
 // UserLoginDto 登录对象
 type UserLoginDto struct {
-	UserID   string `json:"user_id" validate:"required"`
+	//UserID   string `json:"user_id" validate:"required"`
 	Username string `json:"username" validate:"required"`
 	Password string `json:"password" validate:"required"`
-	//IdKey    string
+	IdKey    string // uuid
+}
+
+// JwtUser 用户信息 用于jwt鉴权
+type JwtUser struct {
+	UserID   string `json:"user_id"`
+	Username string `json:"username"`
+	//Role     uint   `json:"role"`
+	//IdKey    string `json:"id_key"`
 }
 
 // UserInfoDto 用户信息 详情视图
