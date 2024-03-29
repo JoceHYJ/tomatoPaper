@@ -33,6 +33,7 @@ type Store interface {
 	Remove(ctx context.Context, id string) error
 	//Get 获取 session
 	Get(ctx context.Context, id string) (Session, error)
+	//GetSessionValue(id string) (Session, error)
 }
 
 type Propagator interface {

@@ -1,14 +1,14 @@
 package test
 
 import (
-	"GinLearning/web"
-	"GinLearning/web/session"
-	"GinLearning/web/session/cookie"
-	"GinLearning/web/session/memory"
 	"github.com/google/uuid"
 	"net/http"
 	"testing"
 	"time"
+	"tomatoPaper/web"
+	"tomatoPaper/web/session"
+	"tomatoPaper/web/session/cookie"
+	"tomatoPaper/web/session/memory"
 )
 
 func TestManager(t *testing.T) {

@@ -65,6 +65,17 @@ func (s *Store) Get(ctx context.Context, id string) (session.Session, error) {
 	return sess.(*memorySession), nil
 }
 
+//func (s *Store) GetSessionValue(id string) (session.Session, error) {
+//	s.mutex.RLock()
+//	defer s.mutex.RUnlock()
+//
+//	sess, ok := s.sessionCache.Get(id)
+//	if !ok {
+//		return nil, errors.New("session: session not found")
+//	}
+//	return sess.(*memorySession), nil
+//}
+
 type memorySession struct {
 	mutex sync.RWMutex
 	id    string
