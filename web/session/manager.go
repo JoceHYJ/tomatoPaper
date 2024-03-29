@@ -1,7 +1,7 @@
 package session
 
 import (
-	"GinLearning/web"
+	"tomatoPaper/web"
 )
 
 type Manager struct {

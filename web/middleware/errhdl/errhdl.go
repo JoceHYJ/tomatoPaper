@@ -1,6 +1,6 @@
 package errhdl
 
-import "GinLearning/web"
+import "tomatoPaper/web"
 
 type MiddlewareBuilder struct {
 	// 这种设计只能返回固定的值, 不能做到动态渲染

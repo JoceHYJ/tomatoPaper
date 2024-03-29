@@ -1,11 +1,11 @@
 package accesslog
 
 import (
-	"GinLearning/web"
 	"encoding/json"
 	"github.com/sirupsen/logrus"
 	"go.uber.org/zap"
 	"log"
+	"tomatoPaper/web"
 )
 
 // Builder 模式的应用

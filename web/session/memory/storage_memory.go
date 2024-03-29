@@ -1,12 +1,12 @@
 package memory
 
 import (
-	"GinLearning/web/session"
 	"context"
 	"errors"
 	"github.com/patrickmn/go-cache"
 	"sync"
 	"time"
+	"tomatoPaper/web/session"
 )
 
 type Store struct {

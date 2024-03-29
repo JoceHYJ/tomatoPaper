@@ -1,10 +1,10 @@
 package accesslog
 
 import (
-	"GinLearning/web"
 	"fmt"
 	"net/http"
 	"testing"
+	"tomatoPaper/web"
 )
 
 func TestMiddlewareBuilder(t *testing.T) {

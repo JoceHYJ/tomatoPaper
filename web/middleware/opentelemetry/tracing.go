@@ -1,11 +1,11 @@
 package opentelemetry
 
 import (
-	web "GinLearning/web"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"
+	"tomatoPaper/web"
 )
 
 const defaultInstrumentationName = "GinLearning/web/middleware/opentelemetry"

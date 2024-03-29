@@ -1,11 +1,11 @@
 package accesslog
 
 import (
-	"GinLearning/web"
 	"fmt"
 	"os"
 	"testing"
 	"time"
+	"tomatoPaper/web"
 )
 
 func TestMiddlewareBuilder_Log_file(t *testing.T) {

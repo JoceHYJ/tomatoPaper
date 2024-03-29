@@ -1,6 +1,6 @@
 package recovery
 
-import "GinLearning/web"
+import "tomatoPaper/web"
 
 type MiddlewareBuilder struct {
 	StatusCode int

@@ -3,9 +3,9 @@
 package accesslog
 
 import (
-	"GinLearning/web"
 	"fmt"
 	"testing"
+	"tomatoPaper/web"
 )
 
 func TestMiddlewareBuilderE2E(t *testing.T) {

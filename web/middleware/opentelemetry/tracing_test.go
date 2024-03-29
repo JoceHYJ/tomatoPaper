@@ -3,10 +3,10 @@
 package opentelemetry
 
 import (
-	"GinLearning/web"
 	"go.opentelemetry.io/otel"
 	"testing"
 	"time"
+	"tomatoPaper/web"
 )
 
 func TestMiddlewareBuilder_Build(t *testing.T) {

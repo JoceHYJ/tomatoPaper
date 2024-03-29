@@ -1,10 +1,10 @@
 package prometheus
 
 import (
-	"GinLearning/web"
 	"github.com/prometheus/client_golang/prometheus"
 	"strconv"
 	"time"
+	"tomatoPaper/web"
 )
 
 type MiddlewareBuilder struct {

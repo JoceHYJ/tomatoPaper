@@ -1,9 +1,9 @@
 package recovery
 
 import (
-	"GinLearning/web"
 	"fmt"
 	"testing"
+	"tomatoPaper/web"
 )
 
 func TestMiddlewareBuilder_Build(t *testing.T) {

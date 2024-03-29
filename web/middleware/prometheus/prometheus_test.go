@@ -3,12 +3,12 @@
 package prometheus
 
 import (
-	"GinLearning/web"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"golang.org/x/exp/rand"
 	"net/http"
 	"testing"
 	"time"
+	"tomatoPaper/web"
 )
 
 func TestMiddlewareBuilder_Build(t *testing.T) {
