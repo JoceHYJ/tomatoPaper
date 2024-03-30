@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"tomatoPaper/api/dao"
 	"tomatoPaper/api/entity"
 	"tomatoPaper/common/util"
@@ -38,9 +37,9 @@ func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
 	//	c.RespJSON(400, "密码错误")
 	//	return
 	//}
-	fmt.Println("输入密码:", dto.Password)
-	fmt.Println("哈希化后的输入密码:", hashedPassword)
-	fmt.Println("数据库中的密码:", user.Password)
+	//fmt.Println("输入密码:", dto.Password)
+	//fmt.Println("哈希化后的输入密码:", hashedPassword)
+	//fmt.Println("数据库中的密码:", user.Password)
 	if hashedPassword != user.Password {
 		c.RespJSON(400, "密码错误")
 		return
