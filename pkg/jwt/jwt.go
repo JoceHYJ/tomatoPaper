@@ -33,6 +33,12 @@ type teacherStdClaims struct {
 	jwt.StandardClaims
 }
 
+// adminStdClaims 自定义 JWT 载荷
+type adminStdClaims struct {
+	entity.JwtAdminDto
+	jwt.StandardClaims
+}
+
 // TokenExpireDuration 设置 Token 的过期时间
 const TokenExpireDuration = time.Hour * 24
 
@@ -88,6 +94,23 @@ func GenerateTokenTeacher(teacher entity.Teachers) (string, error) {
 	}
 	c := teacherStdClaims{
 		jwtTeacherDto,
+		jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(TokenExpireDuration).Unix(),
+			Issuer:    "tomatoPaper",
+		}}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, c)
+	return token.SignedString(Secret)
+}
+
+// GenerateTokenAdmin 根据教师信息生成 token
+func GenerateTokenAdmin(admin entity.Admins) (string, error) {
+	var jwtAdminDto = entity.JwtAdminDto{
+		AdminID: admin.AdminID,
+		//Username: user.Username,
+		Password: admin.Password,
+	}
+	c := adminStdClaims{
+		jwtAdminDto,
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(TokenExpireDuration).Unix(),
 			Issuer:    "tomatoPaper",
@@ -169,4 +192,29 @@ func ValidateTokenTeacher(tokenString string) (*entity.JwtTeacherDto, error) {
 		return nil, err
 	}
 	return &claims.JwtTeacherDto, nil
+}
+
+// ValidateTokenAdmin 解析 JWT 验证 token 是否有效
+func ValidateTokenAdmin(tokenString string) (*entity.JwtAdminDto, error) {
+	if tokenString == "" {
+		return nil, errors.New(ErrAbsent)
+	}
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (any, error) {
+		return Secret, nil
+	})
+	if token == nil {
+		return nil, errors.New(ErrInvalid)
+	}
+	claims := adminStdClaims{}
+	_, err = jwt.ParseWithClaims(tokenString, &claims, func(token *jwt.Token) (any, error) {
+		_, ok := token.Method.(*jwt.SigningMethodHMAC)
+		if !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+		}
+		return Secret, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &claims.JwtAdminDto, nil
 }
