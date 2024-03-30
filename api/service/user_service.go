@@ -1,7 +1,7 @@
 package service
 
 import (
-	"bytes"
+	"fmt"
 	"tomatoPaper/api/dao"
 	"tomatoPaper/api/entity"
 	"tomatoPaper/common/util"
@@ -16,6 +16,7 @@ type IUserService interface {
 	Login(c *web.Context, dto entity.UserLoginDto)
 	CreateUser(c *web.Context, dto entity.CreateUserDto)
 	GetUserByUsername(c *web.Context, username string)
+	GetUserByUserId(c *web.Context, userid string)
 	DeleteUserByUserId(c *web.Context, userid string)
 }
 
@@ -23,19 +24,23 @@ type IUserService interface {
 type UserServiceImpl struct {
 }
 
+// Login 登录
 func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
 	err := validator.New().Struct(dto)
 	if err != nil {
 		c.RespJSON(400, "参数校验失败")
 		return
 	}
-	//user := dao.UserDetail(dto)
-	user := dao.GetUserByUserID(dto.UserID)
-	hashedPassword := util.EncryptionMd5(user.Password)
-	if !bytes.Equal([]byte(hashedPassword), []byte(user.Password)) {
-		c.RespJSON(400, "密码错误")
-		return
-	}
+	user := dao.UserDetail(dto)
+	//user := dao.GetUserByUserID(dto.UserID)
+	hashedPassword := util.EncryptionMd5(dto.Password)
+	//if !bytes.Equal([]byte(hashedPassword), []byte(user.Password)) {
+	//	c.RespJSON(400, "密码错误")
+	//	return
+	//}
+	fmt.Println("输入密码:", dto.Password)
+	fmt.Println("哈希化后的输入密码:", hashedPassword)
+	fmt.Println("数据库中的密码:", user.Password)
 	if hashedPassword != user.Password {
 		c.RespJSON(400, "密码错误")
 		return

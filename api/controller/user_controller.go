@@ -22,6 +22,12 @@ func GetUserByUsername(c *web.Context) {
 	service.UserService().GetUserByUsername(c, Username)
 }
 
+// GetUserByUserId 根据用户id获取用户信息
+func GetUserByUserId(c *web.Context) {
+	UserId, _ := c.QueryValue("user_id").String()
+	service.UserService().GetUserByUserId(c, UserId)
+}
+
 // DeleteUserByUserId 删除用户
 func DeleteUserByUserId(c *web.Context) {
 	UserId, _ := c.QueryValue("user_id").String()
