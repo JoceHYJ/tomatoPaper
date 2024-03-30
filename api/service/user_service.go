@@ -44,7 +44,7 @@ func (u UserServiceImpl) Login(c *web.Context, dto entity.UserLoginDto) {
 		c.RespJSON(400, "密码错误")
 		return
 	}
-	token, err := jwt.GenerateToken(user)
+	token, err := jwt.GenerateTokenUser(user)
 	if err != nil {
 		c.RespJSON(500, "生成token失败")
 		return

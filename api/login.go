@@ -26,7 +26,7 @@ func Login(c *web.Context) {
 		return
 	}
 	// 生成 token
-	token, err := jwt.GenerateToken(user)
+	token, err := jwt.GenerateTokenUser(user)
 	if err != nil {
 		c.RespJSON(500, "生成token失败")
 		return

@@ -8,7 +8,18 @@ import (
 	"tomatoPaper/api/entity"
 )
 
-const ContextKeyUserObj = "authedUserObj"
+const (
+	ContextKeyUserObj    = "authedUserObj"
+	ContextKeyStudentObj = "authedStudentObj"
+	ContextKeyTeacherObj = "authedTeacherObj"
+	ContextKeyAdminObj   = "authedAdminObj"
+)
+
+// studentStdClaims 自定义 JWT 载荷
+type studentStdClaims struct {
+	entity.JwtStudentDto
+	jwt.StandardClaims
+}
 
 // userStdClaims 自定义 JWT 载荷
 type userStdClaims struct {
@@ -26,8 +37,8 @@ var (
 	ErrInvalid = "token invalid"
 )
 
-// GenerateToken 根据用户信息生成 token
-func GenerateToken(user entity.Users) (string, error) {
+// GenerateTokenUser 根据用户信息生成 token
+func GenerateTokenUser(user entity.Users) (string, error) {
 	var jwtUser = entity.JwtUser{
 		UserID: user.UserID,
 		//Username: user.Username,
@@ -35,6 +46,24 @@ func GenerateToken(user entity.Users) (string, error) {
 	}
 	c := userStdClaims{
 		jwtUser,
+		jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(TokenExpireDuration).Unix(),
+			Issuer:    "tomatoPaper",
+		},
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, c)
+	return token.SignedString(Secret)
+}
+
+// GenerateTokenStudent 根据学生信息生成 token
+func GenerateTokenStudent(student entity.Students) (string, error) {
+	var jwtStudentDto = entity.JwtStudentDto{
+		StudentID: student.StudentID,
+		//Username: user.Username,
+		Password: student.Password,
+	}
+	c := studentStdClaims{
+		jwtStudentDto,
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(TokenExpireDuration).Unix(),
 			Issuer:    "tomatoPaper",
@@ -69,7 +98,27 @@ func ValidateToken(tokenString string) (*entity.JwtUser, error) {
 	return &claims.JwtUser, nil
 }
 
-//// GetUserID 返回 UserID
-//func GetUserID(c *web.Context) (string, error) {
-//
-//}
+// ValidateTokenStudent 解析 JWT 验证 token 是否有效
+func ValidateTokenStudent(tokenString string) (*entity.JwtStudentDto, error) {
+	if tokenString == "" {
+		return nil, errors.New(ErrAbsent)
+	}
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (any, error) {
+		return Secret, nil
+	})
+	if token == nil {
+		return nil, errors.New(ErrInvalid)
+	}
+	claims := studentStdClaims{}
+	_, err = jwt.ParseWithClaims(tokenString, &claims, func(token *jwt.Token) (any, error) {
+		_, ok := token.Method.(*jwt.SigningMethodHMAC)
+		if !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+		}
+		return Secret, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &claims.JwtStudentDto, nil
+}
