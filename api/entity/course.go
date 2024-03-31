@@ -38,11 +38,12 @@ type UpdateCourseDto struct {
 //	Teacher Teachers
 //}
 
-// CourseInfoDto 课程信息 详情视图
+// CourseInfoDto 课程信息
 type CourseInfoDto struct {
 	//ID          uint   `json:"id"`
 	CourseCode  string `json:"course_code"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
 	TeacherID   string `json:"teacher_id"`
+	TeacherName string `json:"teacher_name"`
 }

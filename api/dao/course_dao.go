@@ -5,20 +5,66 @@ import (
 	"tomatoPaper/pkg/database"
 )
 
+//func GetCourseByCourseName(name string) (course entity.Courses) {
+//	database.GormDB.Where("name = ?", name).Preload("Teacher").First(&course)
+//	return course
+//}
+
 // GetCourseByCourseName 通过课程名称获取课程信息
-func GetCourseByCourseName(name string) (course entity.Courses) {
-	database.GormDB.Where("name = ?", name).Preload("Teacher").First(&course)
+func GetCourseByCourseName(name string) entity.CourseInfoDto {
+	var course entity.CourseInfoDto
+	database.GormDB.Model(&entity.Courses{}).
+		Where("name = ?", name).
+		Select("course_code, name, description, teacher_id").
+		First(&course)
+
+	teacher := entity.Teachers{}
+	database.GormDB.Where("teacher_id = ?", course.TeacherID).Select("teacher_name").First(&teacher)
+	course.TeacherName = teacher.TeacherName
+
 	return course
 }
+
+//// GetCourseByCourseCode 通过课程代码获取课程信息
+//func GetCourseByCourseCode(code string) (course entity.Courses) {
+//	database.GormDB.Where("course_code = ?", code).Preload("Teacher").First(&course)
+//	return course
+//}
+//
+//func GetCoursesByTeacherID(teacherId string) (courses []entity.Courses) {
+//	database.GormDB.Where("teacher_id = ?", teacherId).Preload("Teacher").Find(&courses)
+//	return courses
+//}
 
 // GetCourseByCourseCode 通过课程代码获取课程信息
-func GetCourseByCourseCode(code string) (course entity.Courses) {
-	database.GormDB.Where("course_code = ?", code).Preload("Teacher").First(&course)
+func GetCourseByCourseCode(code string) entity.CourseInfoDto {
+	var course entity.CourseInfoDto
+	database.GormDB.Model(&entity.Courses{}).
+		Where("course_code = ?", code).
+		Select("course_code, name, description, teacher_id").
+		First(&course)
+
+	teacher := entity.Teachers{}
+	database.GormDB.Where("teacher_id = ?", course.TeacherID).Select("teacher_name").First(&teacher)
+	course.TeacherName = teacher.TeacherName
+
 	return course
 }
 
-func GetCoursesByTeacherID(teacherId string) (courses []entity.Courses) {
-	database.GormDB.Where("teacher_id = ?", teacherId).Preload("Teacher").Find(&courses)
+// GetCoursesByTeacherID 根据教师ID获取课程信息
+func GetCoursesByTeacherID(teacherId string) []entity.CourseInfoDto {
+	var courses []entity.CourseInfoDto
+	database.GormDB.Model(&entity.Courses{}).
+		Where("teacher_id = ?", teacherId).
+		Select("course_code, name, description, teacher_id").
+		Find(&courses)
+
+	for i, course := range courses {
+		teacher := entity.Teachers{}
+		database.GormDB.Where("teacher_id = ?", course.TeacherID).Select("teacher_name").First(&teacher)
+		courses[i].TeacherName = teacher.TeacherName
+	}
+
 	return courses
 }
 
