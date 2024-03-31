@@ -20,6 +20,7 @@ func TestQuery(t *testing.T) {
 	server.Get("/api/query/user_by_userid", controller.GetUserByUserId)
 	server.Get("/api/query/course_by_name", controller.GetCourseByCourseName)
 	server.Get("/api/query/course_by_code", controller.GetCourseByCourseCode)
+	server.Get("/api/query/courses_by_teacher_id", controller.GetCoursesByTeacherID)
 	server.Start(":8080")
 }
 

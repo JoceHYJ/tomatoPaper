@@ -25,6 +25,11 @@ func GetCourseByCourseCode(c *web.Context) {
 	service.CourseService().GetCourseByCourseCode(c, code)
 }
 
+func GetCoursesByTeacherID(c *web.Context) {
+	teacherId, _ := c.QueryValue("teacher_id").String()
+	service.CourseService().GetCoursesByTeacherID(c, teacherId)
+}
+
 // DeleteCourseByCourseCode 通过课程代码删除课程
 func DeleteCourseByCourseCode(c *web.Context) {
 	code, _ := c.QueryValue("course_code").String()

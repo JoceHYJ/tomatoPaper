@@ -12,6 +12,7 @@ type ICourseService interface {
 	CreateCourse(c *web.Context, dao entity.CreateCourseDto)
 	GetCourseByCourseName(c *web.Context, name string)
 	GetCourseByCourseCode(c *web.Context, code string)
+	GetCoursesByTeacherID(c *web.Context, teacherID string)
 	DeleteCourseByCourseCode(c *web.Context, code string)
 	UpdateCourse(c *web.Context, dao entity.UpdateCourseDto)
 }
@@ -30,6 +31,11 @@ func (cs CourseServiceImpl) GetCourseByCourseName(c *web.Context, name string) {
 func (cs CourseServiceImpl) GetCourseByCourseCode(c *web.Context, code string) {
 	course := dao.GetCourseByCourseCode(code)
 	c.RespJSON(200, course)
+}
+
+func (cs CourseServiceImpl) GetCoursesByTeacherID(c *web.Context, teacherId string) {
+	courses := dao.GetCoursesByTeacherID(teacherId)
+	c.RespJSON(200, courses)
 }
 
 // CreateCourse 创建课程
