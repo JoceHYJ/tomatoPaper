@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-21T06:38:29.822Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0" etag="r-e3luaYz7gUvOE9CTrh" version="24.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-21T06:59:09.407Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0" etag="3ik6zSKt0jNHKH23KXuy" version="24.2.7" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="572" dy="590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="922" dy="810" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -11,13 +11,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="初始化阶段" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="164" y="102" width="120" height="40" as="geometry" />
+          <mxGeometry x="92" y="102" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-4" value="Yes" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
           <mxGeometry x="0.3964" y="26" relative="1" as="geometry">
             <mxPoint x="-1" as="offset" />
-            <mxPoint x="223.54000000000002" y="184.5" as="sourcePoint" />
-            <mxPoint x="223.96" y="250" as="targetPoint" />
+            <mxPoint x="151.54000000000002" y="184.5" as="sourcePoint" />
+            <mxPoint x="151.96" y="250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-5" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" target="WIyWlLk6GJQsqaUBKTNV-7" edge="1">
@@ -26,56 +26,96 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-6" value="路由路径合法" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="169" y="175" width="110" height="39" as="geometry" />
+          <mxGeometry x="97" y="175" width="110" height="39" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-5" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-7" target="j9E833cZXk3YDUvR9N5T-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-7" value="报错" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="320" y="184.5" width="46" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-8" value="No" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="WIyWlLk6GJQsqaUBKTNV-11" edge="1">
-          <mxGeometry x="0.3333" y="20" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
+          <mxGeometry x="248" y="184.5" width="46" height="20" as="geometry" />
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-9" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="WIyWlLk6GJQsqaUBKTNV-12" edge="1">
           <mxGeometry y="10" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-10" value="" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="174" y="327" width="100" height="44" as="geometry" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-10" value="根路径？" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="102" y="380" width="100" height="44" as="geometry" />
         </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-11" value="Repair Lamp" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="164" y="433" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="Replace Bulb" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="319" y="329" width="120" height="40" as="geometry" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="特殊处理：直接在根节点上挂载 HandleFunc&lt;span class=&quot;eusoft-eudic-chrome-extension-translate-content&quot;&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="262" y="382" width="132" height="40" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-3" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-0" target="j9E833cZXk3YDUvR9N5T-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-0" value="定义 router 对象&lt;div&gt;（路由注册和查找的入口）&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="319" y="102" width="150" height="36" as="geometry" />
+          <mxGeometry x="247" y="102" width="150" height="36" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-2" value="&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;trees map[string]*node&lt;/span&gt;&lt;/div&gt;&lt;div&gt;根据 HTTP 方法组织路由树&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="514" y="100" width="150" height="40" as="geometry" />
+          <mxGeometry x="442" y="100" width="150" height="40" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-4" value="错误类型：&lt;div&gt;1.以空字符串开头&lt;/div&gt;&lt;div data-eusoft-did-translate-attribute-en=&quot;1&quot;&gt;2.不是以“/”开头&lt;span class=&quot;eusoft-eudic-chrome-extension-translate-content&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div data-eusoft-did-translate-attribute-en=&quot;1&quot;&gt;3.非根路径“/”以“/”结尾&lt;span class=&quot;eusoft-eudic-chrome-extension-translate-content&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div data-eusoft-did-translate-attribute-en=&quot;1&quot;&gt;4.包含连续的“/”(例如：/a//b)&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;align=left;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="498" y="153.75" width="166" height="81.5" as="geometry" />
-        </mxCell>
-        <mxCell id="j9E833cZXk3YDUvR9N5T-12" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-10" target="WIyWlLk6GJQsqaUBKTNV-10">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry x="426" y="153.75" width="166" height="81.5" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-14" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-10" target="j9E833cZXk3YDUvR9N5T-13">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-21" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-10" target="j9E833cZXk3YDUvR9N5T-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-10" value="按照“/”切割路由路径" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="164" y="250" width="120" height="40" as="geometry" />
+          <mxGeometry x="92" y="250" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="j9E833cZXk3YDUvR9N5T-13" value="eg:&quot;/go/hello/doc/v1.html&quot; 切割成&lt;div&gt;&quot;go&quot; &quot;hello&quot; &quot;doc&quot; &quot;v1.html&quot; 四个节点&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="334" y="250" width="246" height="40" as="geometry" />
+          <mxGeometry x="262" y="250" width="246" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-30" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-20" target="WIyWlLk6GJQsqaUBKTNV-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-20" value="递归创建路由树的子节点（ChildOrCreate）" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="89" y="310" width="126" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-34" value="当前 children map 中是否存在对应的子节点" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="102" y="450" width="96" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-38" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="j9E833cZXk3YDUvR9N5T-34">
+          <mxGeometry y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="212" y="412" as="sourcePoint" />
+            <mxPoint x="276" y="412" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-40" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-34" target="j9E833cZXk3YDUvR9N5T-41">
+          <mxGeometry y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="198" y="480" as="sourcePoint" />
+            <mxPoint x="325" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-41" value="&lt;br&gt;&lt;span class=&quot;eusoft-eudic-chrome-extension-translate-content&quot;&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="85" y="540" width="132" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-45" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-42" target="j9E833cZXk3YDUvR9N5T-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-42" value="创建新的子节点&lt;span class=&quot;eusoft-eudic-chrome-extension-translate-content&quot;&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="226" y="460" width="53" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-43" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-34" target="j9E833cZXk3YDUvR9N5T-42">
+          <mxGeometry y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="184" y="480" as="sourcePoint" />
+            <mxPoint x="254" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-47" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="j9E833cZXk3YDUvR9N5T-44" target="j9E833cZXk3YDUvR9N5T-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-44" value="如果当前路径段包含通配符“*”，创建一个通配符节点" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="300" y="450" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="j9E833cZXk3YDUvR9N5T-46" value="如果当前路径段以“:”开头，进一步判断" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="469" y="450" width="132" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
