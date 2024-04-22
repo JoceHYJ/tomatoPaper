@@ -1,29 +1,37 @@
-<mxfile host="app.diagrams.net" modified="2024-04-22T06:36:39.574Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0" etag="eAjeSJZDxcLWzfevI2HT" version="24.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-22T06:51:48.754Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0" etag="P15JXuxsrU42XM-smd7E" version="24.2.7" type="github">
   <diagram name="第 1 页" id="fTfmPQEAHar4iRvdisr0">
-    <mxGraphModel dx="308" dy="1465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1493" dy="1551" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2" value="用户界面(UI)" style="shape=rect;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="100" y="-645" width="120" height="60" as="geometry" />
+          <mxGeometry x="20" y="-645" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="3" value="控制层(Controller)" style="shape=rect;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="273" y="-645" width="120" height="60" as="geometry" />
+          <mxGeometry x="193" y="-645" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="4" value="服务层(Service)" style="shape=rect;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="434" y="-645" width="120" height="60" as="geometry" />
+          <mxGeometry x="338" y="-645" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NQ33ikotHRIKysX-i_2T-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="NQ33ikotHRIKysX-i_2T-33">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="5" value="数据访问层(DAO)" style="shape=rect;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="590" y="-645" width="120" height="60" as="geometry" />
+          <mxGeometry x="484" y="-645" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NQ33ikotHRIKysX-i_2T-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="6" target="NQ33ikotHRIKysX-i_2T-33">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="6" value="实体层(Entity)" style="shape=dataStore;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="590" y="-745" width="120" height="60" as="geometry" />
+          <mxGeometry x="484" y="-741" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="312" y="-615" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1" edge="1" parent="1" source="4" target="5">
           <mxGeometry relative="1" as="geometry" />
@@ -35,46 +43,55 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="12" value="发送请求" style="text;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="221" y="-650" width="70" height="20" as="geometry" />
+          <mxGeometry x="141" y="-650" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="13" value="返回响应" style="text;html=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="221" y="-604" width="70" height="20" as="geometry" />
+          <mxGeometry x="141" y="-604" width="70" height="20" as="geometry" />
         </mxCell>
         <mxCell id="NQ33ikotHRIKysX-i_2T-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="230" y="-660" as="sourcePoint" />
-            <mxPoint x="220" y="-600" as="targetPoint" />
+            <mxPoint x="150" y="-660" as="sourcePoint" />
+            <mxPoint x="140" y="-600" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="NQ33ikotHRIKysX-i_2T-20" value="1.处理请求&lt;div&gt;2.系统响应&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="273" y="-560" width="120" height="60" as="geometry" />
+          <mxGeometry x="193" y="-560" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="NQ33ikotHRIKysX-i_2T-22" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="NQ33ikotHRIKysX-i_2T-20" target="3">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="490" y="-650" as="sourcePoint" />
-            <mxPoint x="540" y="-700" as="targetPoint" />
+            <mxPoint x="410" y="-650" as="sourcePoint" />
+            <mxPoint x="460" y="-700" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NQ33ikotHRIKysX-i_2T-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="3">
+        <mxCell id="NQ33ikotHRIKysX-i_2T-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="4">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="430" y="-615" as="sourcePoint" />
-            <mxPoint x="444" y="-620" as="targetPoint" />
+            <mxPoint x="349" y="-615" as="sourcePoint" />
+            <mxPoint x="312" y="-615" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NQ33ikotHRIKysX-i_2T-30" value="持久化操作" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="590" y="-560" width="120" height="60" as="geometry" />
+        <mxCell id="NQ33ikotHRIKysX-i_2T-30" value="对数据库的&lt;div&gt;持久化操作&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="484" y="-560" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="NQ33ikotHRIKysX-i_2T-31" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="NQ33ikotHRIKysX-i_2T-30" target="5">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="807" y="-650" as="sourcePoint" />
-            <mxPoint x="650" y="-580" as="targetPoint" />
+            <mxPoint x="701" y="-650" as="sourcePoint" />
+            <mxPoint x="544" y="-580" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="NQ33ikotHRIKysX-i_2T-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=12;fontStyle=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5" target="4">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="660" y="-675" as="sourcePoint" />
-            <mxPoint x="660" y="-635" as="targetPoint" />
+            <mxPoint x="570" y="-675" as="sourcePoint" />
+            <mxPoint x="570" y="-635" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="NQ33ikotHRIKysX-i_2T-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NQ33ikotHRIKysX-i_2T-33" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NQ33ikotHRIKysX-i_2T-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NQ33ikotHRIKysX-i_2T-33" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NQ33ikotHRIKysX-i_2T-33" value="论文管理数据库" style="shape=datastore;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="631" y="-670" width="100" height="110" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
